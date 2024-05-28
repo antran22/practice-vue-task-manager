@@ -57,6 +57,8 @@ export default tseslint.config(
   eslintPluginPrettierRecommended,
   {
     rules: {
+      "no-console": "warn",
+      "no-debugger": "warn",
       "prettier/prettier": [
         "error",
         {},
@@ -72,8 +74,6 @@ export default tseslint.config(
       import: fixupPluginRules(pluginImport),
     },
     rules: {
-      "import/group-exports": "error",
-      "import/exports-last": "error",
       "import/order": [
         "error",
         {

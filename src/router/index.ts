@@ -1,14 +1,20 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomeView from "@/views/HomeView.vue";
+import TaskDetailView from "@/views/TaskDetailView.vue";
+import TaskListView from "@/views/TaskListView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "landing",
-      component: HomeView,
+      name: "tasks",
+      component: TaskListView,
+    },
+    {
+      path: "/task/:id",
+      name: "task-detail",
+      component: TaskDetailView,
     },
     {
       path: "/about",

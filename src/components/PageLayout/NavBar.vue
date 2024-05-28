@@ -13,10 +13,12 @@ defineEmits<{
 <template>
   <header class="navbar flex flex-row border-b">
     <div class="flex-1">
-      <button class="btn btn-ghost text-2xl">
-        <img alt="App logo" src="@/assets/logo.svg" width="24" height="24" />
-        <span>{{ title }}</span>
-      </button>
+      <RouterLink to="">
+        <button class="btn btn-ghost text-2xl">
+          <img alt="App logo" src="@/assets/logo.svg" width="24" height="24" />
+          <span>{{ title }}</span>
+        </button>
+      </RouterLink>
     </div>
 
     <button

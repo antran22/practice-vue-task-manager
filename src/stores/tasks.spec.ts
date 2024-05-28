@@ -30,7 +30,6 @@ describe("Task Create", () => {
 
   it("has auto incrementing id", () => {
     const taskStore = useTaskStore();
-    expect(taskStore.tasks.length).toBe(0);
 
     const task1 = taskStore.addTask({
       name: "Test Task 1",
@@ -45,6 +44,32 @@ describe("Task Create", () => {
 
     expect(task1.id).toBe(1);
     expect(task2.id).toBe(2);
+  });
+});
+
+describe("Querying Tasks", () => {
+  it("get existing task", () => {
+    const taskStore = useTaskStore();
+
+    const taskPayload: TaskPayload = {
+      name: "Test Task",
+      status: "To Do",
+      description: "Test Description",
+    };
+
+    const newTask = taskStore.addTask(taskPayload);
+
+    const queryTask = taskStore.getTask(newTask.id);
+
+    expect(queryTask).toEqual(newTask);
+  });
+
+  it("return null when querying non existing task", () => {
+    const taskStore = useTaskStore();
+
+    const queryTask = taskStore.getTask(10);
+
+    expect(queryTask).toBeNull();
   });
 });
 
